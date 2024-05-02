@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        #show {
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<center>
+    <h1>Strong Password Used RegExpression</h1>
+    <form>
+        <label for="Password">Strong Password</label>
+        <input type="password" name="Password" id="pass"><br>
+        <input type="submit" onclick="return demo()"><br>
+        <h1 id="show"></h1>
+    </form>
+</center>
+
+<script>
+    function demo() {
+        let capital = /[A-Z]/g;
+        let small = /[a-z]/g;
+        let numeric = /[0-9]/g;
+        let symbol = /[!@#$%^&*()]/g
+        let input_pass = document.getElementById("pass").value;
+        let match_pass = input_pass.match(capital) && input_pass.match(small) && input_pass.match(numeric) && input_pass.match(symbol) ? "Strong Password" : "Not Strong Password";
+        let result = document.getElementById("show").innerHTML = match_pass + "&nbsp" + input_pass;
+        return false;
+    }
+</script>
+
+</body>
+</html>
